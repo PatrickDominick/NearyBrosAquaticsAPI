@@ -32,7 +32,9 @@ class User(db.Model):
         self.address = address
 
 class UserSchema(ma.Schema):
-    fields = ("id", "username", "password", "name", "address")
+    class Meta:
+        fields = ("id", "username", "password", "name", "address") 
+    # TODO remove sensitive fields (password)
 
 user_schema = UserSchema()
 multiple_user_schema = UserSchema(many=True)
